@@ -1,18 +1,18 @@
 import React from "react";
 import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
+import FrontPage from "./components/FrontPage";
 import PoojaGrid from "./components/PoojaGrid";
-import BookingForm from "./components/BookingForm";
+
 import Footer from "./components/Footer";
+
 import { poojas } from "./data/samplePoojas";
 
 export default function App() {
   return (
-    <div className="font-devanagari bg-cream text-maroon">
+    <div className=" pt-20 font-devanagari bg-cream text-maroon">
       <Navbar />
-      <Hero />
+      <FrontPage />
       <PoojaGrid items={poojas} />
-      <BookingForm />
       <Footer />
     </div>
   );

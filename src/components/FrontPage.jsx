@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Hero() {
+export default function FrontPage() {
   return (
     <section
       id="home"
@@ -17,7 +17,7 @@ export default function Hero() {
         <div className="mt-6 flex justify-center gap-4">
           <a
             href="#poojas"
-            className="bg-maroon text-cream px-6 py-2 rounded-md hover:opacity-90"
+            className="border-2 bg-maroon text-cream px-6 py-2 rounded-md hover:opacity-90 "
           >
             Explore Poojas
           </a>
