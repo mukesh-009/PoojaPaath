@@ -1,0 +1,59 @@
+import { FaInstagram, FaYoutube, FaFacebook } from "react-icons/fa";
+export default function Footer() {
+  return (
+    <footer className="bg-gray-900 text-white py-10 px-6">
+      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <div>
+          <h2 className="text-lg font-bold mb-2">Pooja Paath</h2>
+          <p>Bringing devotion closer to you.</p>
+        </div>
+
+        <div>
+          <h3 className="font-semibold mb-2">Quick Links</h3>
+          <ul className="space-y-1">
+            <li><a href="/" className="hover:text-orange-400">Home</a></li>
+            <li><a href="#booking" className="hover:text-orange-400">Book Now</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 className="font-semibold mb-2">Contact</h3>
+          <a href="tel:+919876543210" className="hover:text-orange-400 block mb-3">+91 98765 43210</a>
+
+          {/* Social Media Icons */}
+          <div className="flex space-x-4 mt-3 text-2xl">
+            <a
+              href="https://instagram.com/yourusername"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-pink-500"
+            >
+              <FaInstagram />
+            </a>
+            <a
+              href="https://youtube.com/yourchannel"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-red-500"
+            >
+              <FaYoutube />
+            </a>
+            <a
+              href="https://facebook.com/yourusername"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-blue-500"
+            >
+              <FaFacebook />
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <p className="text-center text-sm mt-8 text-gray-400">
+        © 2025 Pooja Paath. All rights reserved.
+      </p>
+    </footer>
+  );
+}

@@ -1,1 +1,20 @@
+
+
 @import "tailwindcss";
+
+/* Define the CSS Keyframe animation */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  /* Moves half the width of the concatenated list for a seamless loop */
+  100% { transform: translateX(-50%); } 
+}
+
+/* Define a custom Tailwind-like utility class for the animation */
+.animate-marquee {
+  /* 30s is the speed (adjust as needed), linear for steady speed, infinite loop */
+  animation: marquee 30s linear infinite; 
+}
+
+body {
+  @apply bg-white text-gray-900;
+}
