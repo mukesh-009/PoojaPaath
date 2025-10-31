@@ -12,7 +12,7 @@ export default function BookingSection({ poojas }) {
         <div className="bg-white dark:bg-gray-800 shadow-2xl rounded-xl p-8 md:p-12 border-t-4 border-primary dark:border-accent">
           
           {/* Heading and subtext colors updated */}
-          <h2 className="text-3xl md:text-4xl font-extrabold text-primary dark:text-accent text-center mb-4">
+          <h2 className="text-white text-3xl md:text-4xl font-extrabold text-primary dark:text-accent text-center mb-4">
             Ready to Book Your Pooja? 🔔
           </h2>
           <p className="text-center text-text-light dark:text-gray-300 mb-8 max-w-lg mx-auto">
