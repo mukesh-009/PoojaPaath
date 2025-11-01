@@ -2,19 +2,67 @@
 
 @import "tailwindcss";
 
-/* Define the CSS Keyframe animation */
+/* Define the CSS Keyframe animation - using translate3d for GPU acceleration */
 @keyframes marquee {
-  0% { transform: translateX(0); }
+  0% { 
+    transform: translate3d(0, 0, 0);
+  }
   /* Moves half the width of the concatenated list for a seamless loop */
-  100% { transform: translateX(-50%); } 
+  100% { 
+    transform: translate3d(-50%, 0, 0);
+  } 
 }
 
 /* Define a custom Tailwind-like utility class for the animation */
 .animate-marquee {
   /* 30s is the speed (adjust as needed), linear for steady speed, infinite loop */
-  animation: marquee 30s linear infinite; 
+  animation: marquee 30s linear infinite;
+  will-change: transform;
+  backface-visibility: hidden;
+  perspective: 1000px;
+  /* Prevent jitter and ensure smooth rendering */
+  transform-style: preserve-3d;
+  /* Force GPU acceleration */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
   @apply bg-white text-gray-900;
+}
+
+/* Mobile-friendly improvements */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Line clamp utility for text truncation */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-4 {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Better touch targets */
+.touch-manipulation {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Prevent horizontal scroll on mobile */
+body {
+  overflow-x: hidden;
 }

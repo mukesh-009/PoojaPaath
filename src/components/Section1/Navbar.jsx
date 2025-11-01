@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import logo from "/images/Logo.jpeg";
+import { CONTACT_INFO } from "../../constants/contactInfo";
 
 export default function Navbar({ navigateTo }) {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -24,20 +25,26 @@ export default function Navbar({ navigateTo }) {
     }, 100);
   };
 
+  // Function to handle "Testimonies" button click
+  const handleTestimoniesClick = () => {
+    navigateTo("testimonies");
+    setMenuOpen(false); // Close mobile menu if open
+  };
+
   return (
     <nav className="bg-gray-900 text-white shadow-md fixed w-full top-0 z-[9999]">
-      <div className="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
+      <div className="max-w-6xl mx-auto px-3 sm:px-4 py-2 sm:py-3 flex justify-between items-center">
         
         {/* Left Logo - Clickable to go home */}
-        <div className="flex items-center space-x-3">
+        <div className="flex items-center space-x-2 sm:space-x-3">
           <img
             src={logo}
             alt="logo"
-            className="h-10 w-10 cursor-pointer hover:opacity-80 transition"
+            className="h-8 w-8 sm:h-10 sm:w-10 cursor-pointer hover:opacity-80 transition touch-manipulation"
             onClick={handleHomeClick}
           />
           <h1
-            className="text-xl font-bold cursor-pointer hover:text-orange-400 transition"
+            className="text-lg sm:text-xl font-bold cursor-pointer hover:text-orange-400 transition touch-manipulation"
             onClick={handleHomeClick}
           >
             Pooja Paath
@@ -56,6 +63,14 @@ export default function Navbar({ navigateTo }) {
           </li>
           <li>
             <button 
+              onClick={handleTestimoniesClick} 
+              className="hover:text-orange-400 transition duration-200"
+            >
+              Testimonies
+            </button>
+          </li>
+          <li>
+            <button 
               onClick={handleBookNowClick} 
               className="hover:text-orange-400 transition duration-200"
             >
@@ -64,7 +79,7 @@ export default function Navbar({ navigateTo }) {
           </li>
           <li>
             <a 
-              href="tel:+919876543210" 
+              href={`tel:${CONTACT_INFO.phone.replace(/\D/g, '')}`}
               className="hover:text-orange-400 transition duration-200"
             >
               Contact
@@ -92,13 +107,19 @@ export default function Navbar({ navigateTo }) {
             Home
           </button>
           <button 
+            onClick={handleTestimoniesClick} 
+            className="block w-full text-left hover:text-orange-400 transition py-2"
+          >
+            Testimonies
+          </button>
+          <button 
             onClick={handleBookNowClick} 
             className="block w-full text-left hover:text-orange-400 transition py-2"
           >
             Book Now
           </button>
           <a 
-            href="tel:+919876543210" 
+            href={`tel:${CONTACT_INFO.phone.replace(/\D/g, '')}`}
             className="block w-full text-left hover:text-orange-400 transition py-2"
             onClick={() => setMenuOpen(false)}
           >
